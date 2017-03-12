@@ -9,19 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>api</artifactId>
+    <artifactId>in-memory-storage</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.github.changerequest.store</groupId>
-            <artifactId>model</artifactId>
-            <version>${model.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.changerequest.store</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>${persistence-api.version}</version>
-        </dependency>
         <dependency>
             <groupId>com.github.changerequest.store</groupId>
             <artifactId>storage</artifactId>
@@ -29,8 +19,8 @@
         </dependency>
         <dependency>
             <groupId>com.github.changerequest.store</groupId>
-            <artifactId>in-memory-storage</artifactId>
-            <version>${in-memory-storage.version}</version>
+            <artifactId>persistence-api</artifactId>
+            <version>${persistence-api.version}</version>
         </dependency>
     </dependencies>
 

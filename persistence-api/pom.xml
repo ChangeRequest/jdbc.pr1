@@ -9,14 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>model</artifactId>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.github.changerequest.store</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>${persistence-api.version}</version>
-        </dependency>
-    </dependencies>
+    <artifactId>persistence-api</artifactId>
 
 </project>

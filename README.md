@@ -1,39 +1,33 @@
-Logging. Home Work 1
+JDBC. Practice Task 1
 ===============
 
-[![Join the chat at https://gitter.im/changerequest/logging.hw1](https://badges.gitter.im/changerequest/logging.hw1.svg)](https://gitter.im/changerequest/logging.hw1?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+1 SQL Schema design
+-------------------
 
-1 SLF4J + Logback
------------------
+Design database model that represents store. 
+There should be following tables:
 
- 1. Add latest dependencies of SLF4J + Logback.
- 2. Add logging messages with TRACE, DEBUG, INFO, WARN, ERROR levels for modules:
-    * **in-memory-storage**, on each of CRUD operations
-    * **api**, for each repository class and basket api
-    * **store**, for each class
+1. **category**: id, title, description. Categories should have unique titles.
+2. **property**: id, name, value. Properties should have unique name-value pair.
+3. **item**: id, title, description, price. Items should have unique titles.
+4. **catalog**: id, name. Catalog should have unique names.
 
-NOTE: Your log messages **must** be meaningful have appropriate log level.
+2 JDBC Storage
+------------
 
-2 Custom Logback configuration
-------------------------------
+Update JDBC Storage classes.
 
-Create custom Logback configuration.
+ 1. Create implementations of RowMapper interface for all entities (Catalog, Category, Item, Property).
+ 2. Implement all method of JdbcTemplate class. For more details please read javadocs. Each executed sql statement **must** be logged with debug level. 
+ 3. Create storages for all entities (Catalog, Category, Item, Property) using JdbcTemplate. 
+    * each storage should implement **Storage** interface from **storage** module;
+    * all entities should contain all sub-entities (catalog should contain all items, items - should contain properties, etc);
 
-* **in-memory-storage**: 
-  * should print messages with level TRACE and above to console;
-  * should print messages with level WARN and above to file;
-* **api**: 
-  * should print messages with level INFO and above to console;
-  * should print messages with exactly WARN level to HTML file
-* **store**:
-  * should print messages with DEBUG level to console
+3 Store
+-------
 
-3 Rolling File Appender:
-------------------------
+Update **store** module to use **jdbc-storage** instead of **in-memory-storage**. 
 
-* **in-memory-storage**:
-  * file with WARN level messages should contains only 1 day logs;
-  * history for 10 days should be stored;
-* **api**:
-  * new file should be created if current file size > 1KB
-  * you should store at least 10 latest files
+ 1. Include latest H2, jdbc-storage dependencies.
+ 2. Update **Runner** class to create StoreApp based on h2 jdbc storage.  
+ 3. Add examples that demonstrates update, delete, find by id operations.
