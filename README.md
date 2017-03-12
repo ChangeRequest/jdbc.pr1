@@ -22,6 +22,9 @@ Update JDBC Storage classes.
  3. Create storages for all entities (Catalog, Category, Item, Property) using JdbcTemplate. 
     * each storage should implement **Storage** interface from **storage** module;
     * all entities should contain all sub-entities (catalog should contain all items, items - should contain properties, etc);
+    * saving, updating, deleting any entities must **not** be cascaded. 
+    **Only relations** between entities should be modified. 
+    E.g. you should prevent saving new items while saving catalog only relations between items and catalogs should be added.   
 
 3 Store
 -------
