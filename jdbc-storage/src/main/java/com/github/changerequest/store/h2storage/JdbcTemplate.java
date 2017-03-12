@@ -3,9 +3,8 @@ package com.github.changerequest.store.h2storage;
 import com.github.changerequest.store.h2storage.mapper.RowMapper;
 import com.github.changerequest.store.persistenceapi.StoredEntity;
 
+import java.sql.Connection;
 import java.util.List;
-
-import javax.sql.DataSource;
 
 /**
  * This is the central class for working with JDBC. It simplifies the use of JDBC and helps to avoid common errors.
@@ -14,20 +13,16 @@ import javax.sql.DataSource;
  */
 public class JdbcTemplate {
 
-    private DataSource dataSource;
-
-    public JdbcTemplate(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
-
     /**
      * Execute select query for one entity.
      * @param sql - sql to be executed
      * @param params - sql parameters
      * @param mapper - mapper to map single entity
+     * @param connection - connection which should be used
      * @return result entity
      */
-    public <T extends StoredEntity<Long>> T queryForObject(String sql, Object[] params, RowMapper<T> mapper) {
+    public <T extends StoredEntity<Long>> T queryForObject(String sql, Object[] params, RowMapper<T> mapper,
+            Connection connection) {
         return null;
     }
 
@@ -36,9 +31,11 @@ public class JdbcTemplate {
      * @param sql - sql to be executed
      * @param params - sql parameters
      * @param mapper - mapper to map single entity
+     * @param connection - connection which should be used
      * @return result list of entities
      */
-    public <T extends StoredEntity<Long>> List<T> queryForList(String sql, Object[] params, RowMapper<T> mapper) {
+    public <T extends StoredEntity<Long>> List<T> queryForList(String sql, Object[] params, RowMapper<T> mapper,
+            Connection connection) {
         return null;
     }
 
@@ -46,9 +43,10 @@ public class JdbcTemplate {
      * Execute insert query.
      * @param sql - sql to be executed
      * @param params - sql parameters
+     * @param connection - connection which should be used
      * @return generated primary key
      */
-    public Long executeInsertQuery(String sql, Object[] params) {
+    public Long executeInsertQuery(String sql, Object[] params, Connection connection) {
         return null;
     }
 
@@ -56,8 +54,9 @@ public class JdbcTemplate {
      * Executes update/delete queries.
      * @param sql - sql to be executed
      * @param params - sql parameters
+     * @param connection - connection which should be used
      */
-    public void executeUpdateOrDeleteQuery(String sql, Object[] params) {
+    public void executeUpdateOrDeleteQuery(String sql, Object[] params, Connection connection) {
 
     }
 
