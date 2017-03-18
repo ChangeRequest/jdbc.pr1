@@ -35,3 +35,7 @@ Update **store** module to use **jdbc-storage** instead of **in-memory-storage**
  1. Include latest H2, jdbc-storage dependencies.
  2. Update **Runner** class to create StoreApp based on h2 jdbc storage.  
  3. Add examples that demonstrates update, delete, find by id operations.
+
+Note
+-------
+This task is connected with https://github.com/ChangeRequest/dependency-management.hw1 and https://github.com/ChangeRequest/logging.hw1
