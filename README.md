@@ -38,4 +38,6 @@ Update **store** module to use **jdbc-storage** instead of **in-memory-storage**
 
 Note
 -------
-This task is connected with https://github.com/ChangeRequest/dependency-management.hw1 and https://github.com/ChangeRequest/logging.hw1
+This task is connected with: 
+1. https://github.com/ChangeRequest/dependency-management.hw1 
+2. https://github.com/ChangeRequest/logging.hw1
